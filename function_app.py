@@ -1,5 +1,6 @@
 import logging
 import azure.functions as func
+from summarize_news import get_bulletin
 
 app = func.FunctionApp()
 
@@ -10,3 +11,14 @@ def create_summary(myTimer: func.TimerRequest) -> None:
         logging.info('The timer is past due!')
 
     logging.info('Python timer trigger function executed.')
+
+@app.route(route="http_trigger", auth_level=func.AuthLevel.ANONYMOUS)
+def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    bulletin = get_bulletin()
+
+    return func.HttpResponse(
+        bulletin,
+        status_code=200
+    )
