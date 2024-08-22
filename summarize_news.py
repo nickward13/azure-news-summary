@@ -91,5 +91,9 @@ def get_bulletin():
     feed = get_current_articles(feed_url)
     raw_news_summary = create_raw_news_summary(feed)
     bulletin = generate_bulletin(raw_news_summary)
+
+    # create a json object containing one property, "bulletin", with the value of the bulletin
+    bulletin = json.dumps({"bulletin": bulletin})
+
     return bulletin
 
