@@ -16,17 +16,6 @@ def create_summary(myTimer: func.TimerRequest) -> None:
 
     bulletin = send_bulletin_to_queue()
 
-@app.route(route="http_trigger", auth_level=func.AuthLevel.ANONYMOUS)
-def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
-
-    bulletin = send_bulletin_to_queue()
-
-    return func.HttpResponse(
-        bulletin,
-        status_code=200
-    )
-
 def send_bulletin_to_queue():
     logging.info('Getting bulletin...')
     bulletin = get_bulletin()
