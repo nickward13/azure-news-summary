@@ -35,9 +35,10 @@ def create_raw_news_summary(feed):
 def generate_bulletin(raw_news_summary):
     
     # get api key from environment variable
-    api_key = os.environ.get("OPENAI_API_KEY")
-    endpoint = os.environ.get("OPENAI_ENDPOINT")
-    deployment = os.environ.get("OPENAI_DEPLOYMENT")
+    api_key = os.environ.get("AZURE_OPENAI_API_KEY")
+    endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT")
+    deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT")
+    api_version = os.environ.get("AZURE_OPENAI_API_VERSION")
 
     headers = {
         "Content-Type": "application/json",
@@ -78,7 +79,7 @@ def generate_bulletin(raw_news_summary):
         "max_tokens": 800
         }
 
-    url = f"{endpoint}/openai/deployments/{deployment}/chat/completions?api-version=2024-02-15-preview"
+    url = f"{endpoint}/openai/deployments/{deployment}/chat/completions?api-version={api_version}"
 
     try:
         response = requests.post(url, headers=headers, json=payload)
