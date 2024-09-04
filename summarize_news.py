@@ -51,7 +51,10 @@ def generate_bulletin(raw_news_summary):
             "content": [
                 {
                 "type": "text",
-                "text": "You are a news editor responsible for creating a daily bulletin that is to be read out by a newsreader.  You will be given a series of articles that need to be summarized into the bulletin. Format the script using HTML."
+                "text": """You are a news editor responsible for creating a daily news bulletin 
+                in the style of the New York Times.  You will be given a series of articles 
+                that need to be summarized into the bulletin. Ensure you correct format the 
+                script using HTML."""
                 }
             ]
             },
@@ -60,7 +63,8 @@ def generate_bulletin(raw_news_summary):
             "content": [
                 {
                 "type": "text",
-                "text": "Here are a series of articles.   Please create a daily news bulletin for reading by our anchor Sally."
+                "text": """The following is the set of articles.  Please create a daily news 
+                bulletin."""
                 },
                 {
                 "type": "text",
