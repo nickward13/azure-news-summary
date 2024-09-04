@@ -36,10 +36,10 @@ def generate_bulletin(raw_news_summary):
     
     # get api key from environment variable
     api_key = os.environ.get("AZURE_OPENAI_API_KEY")
-    endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT")
-    deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT")
     api_version = os.environ.get("AZURE_OPENAI_API_VERSION")
-
+    deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT")
+    endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT")
+    
     headers = {
         "Content-Type": "application/json",
         "api-key": api_key
