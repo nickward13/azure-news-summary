@@ -52,10 +52,14 @@ def generate_bulletin(raw_news_summary):
             "content": [
                 {
                 "type": "text",
-                "text": """You are a news editor responsible for creating a daily news bulletin 
-                in the style of the New York Times.  You will be given a series of articles 
-                that need to be summarized into the bulletin. Ensure you correct format the 
-                script using HTML."""
+                "text": """You are a news editor responsible for creating a daily news bulletin in the style of the New York Times.  You will be given a series of articles that need to be summarized into the bulletin. 
+                
+<instructions>
+- Format the script using HTML.
+- Ensure you include the title, summary, and link for each article.
+- Start the bulletin with html tags and include the articles in the body tag.
+- Do not decorate the HTML with ```html\\n.
+</instructions>"""
                 }
             ]
             },
@@ -63,13 +67,18 @@ def generate_bulletin(raw_news_summary):
             "role": "user",
             "content": [
                 {
-                "type": "text",
-                "text": """The following is the set of articles.  Please create a daily news 
-                bulletin."""
+                    "type": "text",
+                    "text": """The following is the set of articles.  Please create a daily news bulletin.
+
+<articles>"""
                 },
                 {
-                "type": "text",
-                "text": raw_news_summary
+                    "type": "text",
+                    "text": raw_news_summary
+                },
+                {
+                    "type": "text",
+                    "text": "</articles>"
                 }
             ]
             }
