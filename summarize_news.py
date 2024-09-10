@@ -85,7 +85,7 @@ def generate_bulletin(raw_news_summary):
         ],
         "temperature": 0.7,
         "top_p": 0.95,
-        "max_tokens": 800
+        "max_tokens": 2000
         }
 
     url = f"{endpoint}/openai/deployments/{deployment}/chat/completions?api-version={api_version}"
